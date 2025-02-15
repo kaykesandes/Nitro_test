@@ -103,17 +103,26 @@ Este é o arquivo principal da aplicação Flask. Ele carrega os dados, calcula 
 
 ## Executando aplicação
 
-1. Instale as dependências listadas em `requirements.txt`:
+1. Crie um ambiente virtual em python na raiz do desafio
+```
+python -m venv venv
+```
+* Fique atento a sua versão do python, caso seja o python3
+
+2. Excute o ambiente virtual 
+- `source venv/bin/activate`: Linux
+- `.\venv\Scripts\activate`: Windows
+2. Instale as dependências listadas em `requirements.txt`:
 ```
 pip install -r requirements.txt
 ```
 2. Execute a aplicação Flask
 ```
-python App/main.py
+python main.py
 ```
 ou
 ````
-python3 App/main.py
+python3 main.py
 ````
 3. Acesse a aplicação no navegador em `http://127.0.0.1:5000/`.
 
