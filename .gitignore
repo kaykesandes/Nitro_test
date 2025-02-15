@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-App/
+.App/solucao
 
 # C extensions
 *.so
