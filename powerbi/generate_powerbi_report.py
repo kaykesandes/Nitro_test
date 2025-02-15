@@ -1,6 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import os
+os.makedirs('App/solucao', exist_ok=True)
+
+
 def generate_powerbi_report(df, total_faturado, total_faturado_loja1, total_faturado_loja2, total_faturado_loja3, top_vendedores_loja1, top_vendedores_loja2, top_vendedores_loja3, soma_total_faturado):
     # Create a summary DataFrame
     summary_data = {

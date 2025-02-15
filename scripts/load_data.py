@@ -18,9 +18,9 @@ def ordenar_datas(df):
 def load_data():
     
     # Carregar dados das lojas
-    loja1 = pd.read_excel("App/data/Loja1.xlsx", header=0)
-    loja2 = pd.read_excel("App/data/Loja2.xlsx", header=0)
-    loja3 = pd.read_excel("App/data/Loja3.xlsx", header=0)
+    loja1 = pd.read_excel("data/Loja1.xlsx", header=0)
+    loja2 = pd.read_excel("data/Loja2.xlsx", header=0)
+    loja3 = pd.read_excel("data/Loja3.xlsx", header=0)
     
     # Remover linhas vazias
     loja1.dropna(how='all', inplace=True)
@@ -39,7 +39,7 @@ def load_data():
     lojas = pd.concat([loja1, loja2, loja3], ignore_index=True)
     
     # Carregar dados de produtos
-    produtos = pd.read_csv("App/data/Produtos.csv", encoding='latin1', delimiter=';')
+    produtos = pd.read_csv("data/Produtos.csv", encoding='latin1', delimiter=';')
     
     # Mesclar dados das lojas com dados de produtos
     df = pd.merge(lojas, produtos, left_on="Código Produto", right_on="Codigo Produto")

@@ -2,7 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib
-from App.scripts.load_data import load_data
+from scripts.load_data import load_data
+
+
+import os
+os.makedirs('App/solucao', exist_ok=True)
+
 
 matplotlib.use('Agg')
 
@@ -16,8 +21,8 @@ def gerar_grafico_faturamento_categoria(df):
     plt.legend(title="Loja")
     plt.xticks(rotation=45)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
-    plt.savefig("App/static/faturamento_mensal.png")
-    plt.savefig("App/solucao/faturamento_mensal.png")
+    plt.savefig("static/faturamento_mensal.png")
+    plt.savefig("solucao/faturamento_mensal.png")
     plt.close()
 
     # Gráfico de faturamento por categoria
@@ -28,8 +33,8 @@ def gerar_grafico_faturamento_categoria(df):
     plt.title("Faturamento por Categoria de Produto")
     plt.legend(title="Loja")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
-    plt.savefig("App/static/faturamento_categoria.png")
-    plt.savefig("App/solucao/faturamento_categoria.png")
+    plt.savefig("static/faturamento_categoria.png")
+    plt.savefig("solucao/faturamento_categoria.png")
     plt.close()
 
 # Carregar dados usando a função load_data

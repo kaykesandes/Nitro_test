@@ -1,9 +1,9 @@
 from flask import Flask, render_template
 import pandas as pd
-from App.scripts.load_data import load_data
-from App.scripts.calcular_metricas import calcular_total_faturado, calcular_top_vendedores
-from App.scripts.gerar_grafico_faturamento_categoria import gerar_grafico_faturamento_categoria
-from App.powerbi.generate_powerbi_report import generate_powerbi_report 
+from scripts.load_data import load_data
+from scripts.calcular_metricas import calcular_total_faturado, calcular_top_vendedores
+from scripts.gerar_grafico_faturamento_categoria import gerar_grafico_faturamento_categoria
+from powerbi.generate_powerbi_report import generate_powerbi_report 
 
 app = Flask(__name__)
 

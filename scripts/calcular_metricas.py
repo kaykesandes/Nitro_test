@@ -1,5 +1,5 @@
 import pandas as pd
-import App.scripts.load_data as load_data
+import scripts.load_data as load_data
 
 loja1, loja2, loja3, lojas, produtos, df = load_data.load_data()
 
