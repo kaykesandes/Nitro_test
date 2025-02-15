@@ -6,89 +6,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="mt-5 text-center">Dashboard</h1>
+        <h1 class="mt-5 text-center">Dashboard de Vendas</h1>
 
-        <div class="card mt-4">
-            <div class="card-body">
-                <h2 class="card-title">Total Faturado</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Loja</th>
-                            <th>Faturamento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Matriz - Macaé</td>
-                            <td>{{total_faturado_loja1}}</td>
-                        </tr>
-                        <tr>
-                            <td>Filial1 - Belo Horizonte</td>
-                            <td>{{total_faturado_loja2}}</td>
-                        </tr>
-                        <tr>
-                            <td>Filial2 - Vitória</td>
-                            <td>{{total_faturado_loja3}}</td>
-                        </tr>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Total Faturado</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Loja</th>
+                                    <th>Faturamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Matriz - Macaé</td>
+                                    <td>{{total_faturado_loja1}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Filial1 - Belo Horizonte</td>
+                                    <td>{{total_faturado_loja2}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Filial2 - Vitória</td>
+                                    <td>{{total_faturado_loja3}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td><strong>{{soma_total_faturado}}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-                        <tr>
-                            <td><strong>Total</strong></td>
-                            <td><strong>{{soma_total_faturado}}</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Top Vendedores</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Loja</th>
+                                    <th>Vendedor</th>
+                                    <th>Faturamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LOJA01 - Matriz</td>
+                                    <td>{{ top_vendedor_loja1.iloc[0]['Nome Vendedor'] if not top_vendedor_loja1.empty else 'N/A' }}</td>
+                                    <td>{{ top_vendedor_loja1.iloc[0]['ValorVenda'] if not top_vendedor_loja1.empty else 'N/A' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>LOJA02 - Filial</td>
+                                    <td>{{ top_vendedor_loja2.iloc[0]['Nome Vendedor'] if not top_vendedor_loja2.empty else 'N/A' }}</td>
+                                    <td>{{ top_vendedor_loja2.iloc[0]['ValorVenda'] if not top_vendedor_loja2.empty else 'N/A' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>LOJA03 - Filial</td>
+                                    <td>{{ top_vendedor_loja3.iloc[0]['Nome Vendedor'] if not top_vendedor_loja3.empty else 'N/A' }}</td>
+                                    <td>{{ top_vendedor_loja3.iloc[0]['ValorVenda'] if not top_vendedor_loja3.empty else 'N/A' }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card mt-4">
-            <div class="card-body">
-                <h1>Top Vendedores</h1>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Loja</th>
-                        <th>Vendedor</th>
-                        <th>Faturamento</th>
-                    </tr>
-                    <tr>
-                        <td>LOJA01 -> Matriz</td>
-                        <td>{{ top_vendedor_loja1.iloc[0]['Nome Vendedor'] if not top_vendedor_loja1.empty else 'N/A' }}</td>
-                        <td>{{ top_vendedor_loja1.iloc[0]['ValorVenda'] if not top_vendedor_loja1.empty else 'N/A' }}</td>
-                    </tr>
-                    <tr>
-                        <td>LOJA02 -> Filial</td>
-                        <td>{{ top_vendedor_loja2.iloc[0]['Nome Vendedor'] if not top_vendedor_loja2.empty else 'N/A' }}</td>
-                        <td>{{ top_vendedor_loja2.iloc[0]['ValorVenda'] if not top_vendedor_loja2.empty else 'N/A' }}</td>
-                    </tr>
-                    <tr>
-                        <td>LOJA03 -> Filial</td>
-                        <td>{{ top_vendedor_loja3.iloc[0]['Nome Vendedor'] if not top_vendedor_loja3.empty else 'N/A' }}</td>
-                        <td>{{ top_vendedor_loja3.iloc[0]['ValorVenda'] if not top_vendedor_loja3.empty else 'N/A' }}</td>
-                    </tr>
-                </table>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Faturamento Mensal</h2>
+                        <img src="{{ url_for('static', filename='faturamento_mensal.png') }}" class="img-fluid" alt="Faturamento Mensal">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card mt-4 mb-5">
-            <div class="card-body">
-                <h2 class="card-title">Faturamento Mensal</h2>
-                <img src="{{ url_for('static', filename='faturamento_mensal.png') }}" class="img-fluid"
-                    alt="Faturamento Mensal">
-            </div>
-        </div>
-
-        <div class="card mt-4 mb-5">
-            <div class="card-body">
-                <h2 class="card-title">Faturamento por Categoria de Produto</h2>
-                <img src="{{ url_for('static', filename='faturamento_categoria.png') }}" class="img-fluid"
-                    alt="Faturamento por Categoria de Produto">
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Faturamento por Categoria de Produto</h2>
+                        <img src="{{ url_for('static', filename='faturamento_categoria.png') }}" class="img-fluid" alt="Faturamento por Categoria de Produto">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        <hr>    
+        <p>Desenvolvido por Kayke Sandes</p>
+        <a href="https://kayke-dev-xi.vercel.app/" target="_blank">Portfólio</a>
+        <a href="https://github.com/kaykesandes" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/kayke-sandes-1ab42527a/" target="_blank">LinkedIn</a>
+    </footer>
 </body>
 
 </html>
