@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">Dashboard</h1>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="card-title">Total Faturado</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Loja</th>
+                            <th>Faturamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Matriz - Macaé</td>
+                            <td>{{total_faturado_loja1}}</td>
+                        </tr>
+                        <tr>
+                            <td>Filial1 - Belo Horizonte</td>
+                            <td>{{total_faturado_loja2}}</td>
+                        </tr>
+                        <tr>
+                            <td>Filial2 - Vitória</td>
+                            <td>{{total_faturado_loja3}}</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>{{soma_total_faturado}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h1>Top Vendedores</h1>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Loja</th>
+                        <th>Vendedor</th>
+                        <th>Faturamento</th>
+                    </tr>
+                    <tr>
+                        <td>LOJA01 -> Matriz</td>
+                        <td>{{ top_vendedor_loja1.iloc[0]['Nome Vendedor'] if not top_vendedor_loja1.empty else 'N/A' }}</td>
+                        <td>{{ top_vendedor_loja1.iloc[0]['ValorVenda'] if not top_vendedor_loja1.empty else 'N/A' }}</td>
+                    </tr>
+                    <tr>
+                        <td>LOJA02 -> Filial</td>
+                        <td>{{ top_vendedor_loja2.iloc[0]['Nome Vendedor'] if not top_vendedor_loja2.empty else 'N/A' }}</td>
+                        <td>{{ top_vendedor_loja2.iloc[0]['ValorVenda'] if not top_vendedor_loja2.empty else 'N/A' }}</td>
+                    </tr>
+                    <tr>
+                        <td>LOJA03 -> Filial</td>
+                        <td>{{ top_vendedor_loja3.iloc[0]['Nome Vendedor'] if not top_vendedor_loja3.empty else 'N/A' }}</td>
+                        <td>{{ top_vendedor_loja3.iloc[0]['ValorVenda'] if not top_vendedor_loja3.empty else 'N/A' }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <h2 class="card-title">Faturamento Mensal</h2>
+                <img src="{{ url_for('static', filename='faturamento_mensal.png') }}" class="img-fluid"
+                    alt="Faturamento Mensal">
+            </div>
+        </div>
+
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <h2 class="card-title">Faturamento por Categoria de Produto</h2>
+                <img src="{{ url_for('static', filename='faturamento_categoria.png') }}" class="img-fluid"
+                    alt="Faturamento por Categoria de Produto">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
