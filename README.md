@@ -64,7 +64,7 @@ seaborn=0.13.2
 openpyxl=3.1.5
 ```
 
-## Scripts 
+## Scripts
 
 `load_data.py`: Este script carrega e processa os dados das lojas
 
@@ -78,6 +78,7 @@ openpyxl=3.1.5
 ``calcular_metricas.py`:Este script calcula métricas de vendas.
 
 ##### Funções
+
 - `calcular_total_faturado(loja1, loja2, loja3)`:Calcula o total faturado por cada loja.
 - `calcular_top_vendedores(loja1, loja2, loja3)`:Calcula os principais vendedores por loja.
 
@@ -85,7 +86,7 @@ openpyxl=3.1.5
 
 ##### Funções
 
-- `gerar_grafico_faturamento_categoria(df)`: Gera e salva grafico de faturamento mensal e por categoria de produto. 
+- `gerar_grafico_faturamento_categoria(df)`: Gera e salva grafico de faturamento mensal e por categoria de produto.
 
 `generate_powerbi_report.py`:Este script gera relatórios em Excel com os dados de faturamento e principais vendedores.
 
@@ -104,28 +105,42 @@ Este é o arquivo principal da aplicação Flask. Ele carrega os dados, calcula 
 ## Executando aplicação
 
 1. Crie um ambiente virtual em python na raiz do desafio
+
 ```
 python -m venv venv
 ```
+
 * Fique atento a sua versão do python, caso seja o python3
 
-2. Excute o ambiente virtual 
+2. Excute o ambiente virtual
+
 - `source venv/bin/activate`: Linux
 - `.\venv\Scripts\activate`: Windows
+
 2. Instale as dependências listadas em `requirements.txt`:
+
 ```
 pip install -r requirements.txt
 ```
+
 2. Execute a aplicação Flask
+
 ```
 python main.py
 ```
+
 ou
+
 ````
 python3 main.py
 ````
+
 3. Acesse a aplicação no navegador em `http://127.0.0.1:5000/`.
 
 ## Conclusão
 
-Este desafio fornece uma solução completa para o processamento, análise e visualização de dados de vendas de várias lojas. Ele utiliza a biblioteca Flask para criar uma interface web, pandas para manipulação de dados, matplotlib e seaborn para geração de gráficos, e openpyxl para criação de relatórios em Excel. 
+Este desafio fornece uma solução completa para o processamento, análise e visualização de dados de vendas de várias lojas. Ele utiliza a biblioteca Flask para criar uma interface web, pandas para manipulação de dados, matplotlib e seaborn para geração de gráficos, e openpyxl para criação de relatórios em Excel.
+
+## Projeto salvo GitHub
+
+[Git](https://github.com/kaykesandes/Nitro_test)
