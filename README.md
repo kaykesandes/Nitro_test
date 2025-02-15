@@ -128,6 +128,4 @@ python3 main.py
 
 ## Conclusão
 
-```
 Este desafio fornece uma solução completa para o processamento, análise e visualização de dados de vendas de várias lojas. Ele utiliza a biblioteca Flask para criar uma interface web, pandas para manipulação de dados, matplotlib e seaborn para geração de gráficos, e openpyxl para criação de relatórios em Excel. 
-````
